@@ -32,8 +32,8 @@
 				accept:".node",
 				drop:function(event,ui)
 				{  					
-				   var ss=myFlowUtil.factory(ui.helper.attr("type"),paper,event.clientX-220-40,event.clientY-20,"");
-				   ss.draw(); 
+				   myFlowUtil.factory(ui.helper.attr("type"),paper,event.clientX-220-40,event.clientY-20,"");
+				  
 				}
 			});
       

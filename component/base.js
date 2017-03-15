@@ -205,33 +205,38 @@ Component_End.draw=function (){
 	alert(this.x);
 }
 
-/** 
- * 定义一个类User,js中使用构造函数实现 
- */  
-Component_End = function(r, x,y,data){  
-    //定义属性  
-    this.r = r;  
-    this.x = x;  
-    this.y = y;  
-    this.data=data;
- }  
+// /** 
+//  * 定义一个类,js中使用构造函数实现 
+//  */  
+// Component_End = function(r, x,y,data){  
+//     //定义属性  
+//     this.r = r;  
+//     this.x = x;  
+//     this.y = y;  
+//     this.data=data;
+//  }  
   
-// js通过prototype动态为类添加方法  
-Component_End.prototype.draw = function(){  
-     rect = this.r.rect(this.x, this.y, 80, 40, 10).attr({fill:"green", stroke:"#777",title:"结束",opacity:1})
+// // js通过prototype动态为类添加方法  
+// Component_End.prototype.draw = function(){  
+//      rect = this.r.rect(this.x, this.y, 80, 40, 10).attr({fill:"green", stroke:"#777",title:"结束",opacity:1})
     
-     rect.attr("data",JSON.stringify(eval(this.data)));
+//      rect.attr("data",JSON.stringify(eval(this.data)));
+//      rect.attr("id",rect.id);
+//      rect.attr("type","COMMENT_END");
+//      rect.drag();
+
+// };  
+
+
+function Component_End(r, x,y,data){
+	 	  
+	 rect = r.rect(x, y, 80, 40, 10).attr({fill:"green", stroke:"#777",title:"结束",opacity:1})
+     rect.attr("x",x);
+     rect.attr("y",y);
+     rect.attr("data",JSON.stringify(eval(data)));
      rect.attr("id",rect.id);
      rect.attr("type","COMMENT_END");
-     rect.drag();
 
-};  
-
-
-function Component_Ends(r, x,y,data){
-	 	  
-	 rect = r.rect(x, y, 80, 40, 10).attr({fill:"green", stroke:"#777",title:"结束",opacity:1,"x":x,"y":y,"data":JSON.stringify(eval(data)),"id":rect.id,"type":"COMMENT_END"});
-    
 	 rect.drag(move,start,up); 
     function start(){
 		this.xx = this.attr("x");
