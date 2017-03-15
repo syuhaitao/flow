@@ -1,0 +1,44 @@
+ .MenuTitle    
+        {       
+            height:40px;    
+            font-size:15px;  
+            color:white;  
+            padding-left:10px;    
+            padding-top:10px;    
+            cursor:pointer;  
+            border:white 1px solid; 
+            text-align: center;
+            background-color:silver ;   
+        }
+         .propTitle  
+        {       
+            height:40px;    
+            font-size:15px;  
+            color:white;  
+            padding-left:10px;    
+            padding-top:10px;    
+            cursor:pointer;  
+            border:white 1px solid; 
+            text-align: center;
+            background-color:#666666 ;   
+        }
+        .propBody{
+
+          margin-top:5px;
+        }    
+        .MenuTitle:hover
+    { 
+      border:silver 2px solid;
+    }  
+        .MenuContent    
+        {    
+            font-size:12px;     
+            border:silver 1px solid;
+            background-color: #F0F0F0;    
+        } 
+        .node{
+
+          width:40px;
+          height:40px;
+          margin-left:13px;
+        }   

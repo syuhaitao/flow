@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/myFlow.css">
+
+  </head>
+  <body>
+  <style type="text/css"> 
+       *{
+
+		  margin: 0;
+		  padding: 0;
+
+       }
+   
+  </style>
+    <script src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript"
+	src="js/jquery-ui-1.11.4.custom.min.js"></script>
+    
+    <script type="text/javascript" src="js/snap.svg.js"></script>
+    <script type="text/javascript" src="js/undo.js"></script>
+    <script type="text/javascript" src="component/base.js"></script>
+    <script type="text/javascript" src="js/myFlow.js"></script>
+    <script type="text/javascript" src="js/myFlowUtil.js"></script>
+   
+	<script src="css/bootstrap.js"></script>
+	<script>
+	 $(function (){
+	  var options={
+       
+	  	tools:[
+	  	{group:"基础组件",
+	  	    child:[
+			    {
+				id:"Component_Circle",type:"Component_Circle",src:"images/circle.svg" ,text:"圆形"
+			    },
+			    {
+				id:"Component_Ellipse",type:"Component_Ellipse",src:"images/ellipse.svg" ,text:"椭圆"
+				 },
+			    {
+				id:"Component_Triangle",type:"Component_Triangle",src:"images/三角形_triangle23.svg" ,text:"三角"
+			  },
+			  {
+				id:"Component_Square",type:"Component_Square",src:"images/广场_square80.svg" ,text:"正方形"
+			  },
+			   {
+				id:"Component_Rect",type:"Component_Rect",src:"images/矩形_rectangular47.svg" ,text:"矩形"
+			    },
+			    {
+				id:"Component_Rhomb",type:"Component_Rhomb",src:"images/菱形_rhomb.svg" ,text:"菱形"
+				 },
+			    {
+				id:"Component_Pentagon",type:"Component_Pentagon",src:"images/五角大厦_pentagon1.svg" ,text:"五角形"
+			  },
+			  {
+				id:"Component_Hexagon",type:"Component_Hexagon",src:"images/六角_hexagon7.svg" ,text:"六角形"
+			  },
+			   {
+				id:"Component_Octagon",type:"Component_Octagon",src:"images/八角形_octagon.svg" ,text:"八角形"
+			    },
+			    {
+				id:"Component_Cube",type:"Component_Cube",src:"images/立方体_cube12.svg" ,text:"立方体"
+				 },
+			    {
+				id:"Component_Cylinarical",type:"Component_Cylinarical",src:"images/圆柱_cylindrical7.svg" ,text:"圆柱"
+			  },
+			  {
+				id:"Component_Cone",type:"Component_Cone",src:"images/锥_cone4.svg" ,text:"锥"
+			  }
+			 ]
+		},
+	   {group:"规则流组件",
+	      child:[{
+	  	     id:"Component_Start",type:"Component_Start",src:"images/start.png" ,text:"开始"
+	         },
+	         {
+	  	       id:"COMMENT_TABLE",type:"COMMENT_TABLE",src:"images/task_empty.png" ,text:"规则表"
+	         },
+	         {
+	          id:"Component_End",type:"Component_End",src:"images/end.png" ,text:"结束"
+	         },
+	         {
+	  	       id:"Component_Fen",type:"Component_Fen",src:"images/gateway_exclusive.png" ,text:"分支"
+	         }
+	         ]
+	   },
+	    {group:"工作流组件",
+	       child:[{
+	  	     id:"COMMENT_START",type:"COMMENT_START",group:"div1",src:"images/start.png" ,text:"开始"
+	         },
+	         {
+	  	       id:"COMMENT_TASK",type:"COMMENT_TASK",group:"div2",src:"images/task_empty.png" ,text:"任务"
+	         },
+	        
+	         {
+	  	       id:"COMMENT_FEN",type:"COMMENT_FEN",group:"div2",src:"images/gateway_exclusive.png" ,text:"分支"
+	         },
+	          {
+	  	       id:"COMMENT_HE",type:"COMMENT_HE",group:"div2",src:"images/gateway_parallel.png" ,text:"合并"
+	         },
+	          {
+	          id:"COMMENT_END",type:"COMMENT_END",group:"div1",src:"images/end.png" ,text:"结束"
+	         },
+	         ]
+	   }
+
+	  ],
+	  data:[{id:"1",type:"Component_End",attr:{x:"100",y:"100",title:"AAA"}},
+	  {id:"2",type:"Component_End",attr:{x:"200",y:"200",title:"AAA"}},
+	  {id:"3",type:"Component_End",attr:{x:"300",y:"300",title:"AAA"}}]};
+	 $("#tool").myFlow(options);
+    
+	});	
+</script>
+
+<div  class="row" style="margin:0px;padding:0px">
+
+    <div  class="col-md-2" id="tool" style="border:2px solid silver;height:500px;padding:0px;margin:0px;overflow:y;background-color:#DDDDDD">
+ 
+    </div>
+
+	<div  class="col-md-8" id="myflow" style="padding:0px;margin:0px;border:1px solid silver;overflow:auto;height:500px;background-image: url(images/bg.png)">
+	  <div>
+     	<input id="save" type="button" value="save"/><input id="redo" type="button" value="redo" /><input id="undo" type="button" value="undo"/>
+     </div>
+	  <svg id="svg2" width="1000" height="800">
+	 <!-- 预定义marker-->
+		<defs>
+			<marker id="arrow" refX="0" refY="0" markerWidth="8" markerHeight="8" orient="auto" viewBox="0, -3, 10, 6" >
+				<path d="M0 -3 L0 3 L10 0"  style="fill: black;"></path>
+			</marker>
+		</marker>
+		</defs>
+		
+	  </svg>
+	</div>
+	<div class="col-md-2"  id="prop" style="border:2px solid silver;height:500px;padding:0px;margin:0px;background-color:#DDDDDD">
+	<div class="propTitle">组件属性</div>
+    <div id="propBody" class="propBody"></div>
+	</div>
+</div>
+<div  id="dialog"></div>
+<div class="container row" >
+        <div id="footer" style="text-align:center;" >
+          Copyright © 2017 北大医疗信息技术有限公司 All Rights Reserved 
+        </div>  
+</div>
+
+
+ </body>
+</html>
